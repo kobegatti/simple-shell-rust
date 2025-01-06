@@ -1,2 +1,2 @@
-# Todo-List
-CLI Rust shell 
+# todo-list-rust
+CLI Rust todo list program 

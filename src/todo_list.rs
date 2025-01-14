@@ -38,7 +38,24 @@ impl TodoList {
 						if self.items.remove(&num).is_none() {
 							eprintln!("item number '{}' is not on the Todo-List...", &num);
 						}
-						else {
+						else
+						{
+							let mut new_items = BTreeMap::new();
+
+							for (key, value) in &self.items
+							{
+								if *key > num
+								{
+									new_items.insert(key - 1, value.clone());
+								}
+								else
+								{
+									new_items.insert(*key, value.clone());
+								}
+
+							}
+							
+							self.items = new_items;
 							self.current_index -= 1;
 						}
 					},
